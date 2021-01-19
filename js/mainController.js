@@ -26,6 +26,23 @@ angular
       modalService,
       FEATURES
     ) {
+      const getAllBoards = function() {
+        const allBoards = [];
+        firebaseService.getAllBoards().on('value', snap => {
+          Object.entries(snap.val()).forEach(([key, value]) => {
+            allBoards.push({'name': value.boardId, 'link': key});
+          });
+          $scope.allBoards = allBoards;
+          $scope.$apply();
+        });
+      }
+
+      const init = function() {
+        getAllBoards();
+      }
+
+      init();
+
       $scope.loading = true;
       $scope.messageTypes = utils.messageTypes;
       $scope.utils = utils;
@@ -49,8 +66,6 @@ angular
         data: [],
         mapping: []
       };
-
-      getAllBoards();
     
 
       $scope.droppedEvent = function(dragEl, dropEl) {
@@ -69,17 +84,6 @@ angular
           });
         });
       };
-
-      function getAllBoards() {
-        const allBoards = [];
-        firebaseService.getAllBoards().on('value', snap => {
-          Object.entries(snap.val()).forEach(([key, value]) => {
-            allBoards.push({'name': value.boardId, 'link': key});
-          });
-          $scope.allBoards = allBoards;
-          $scope.$apply();
-        });
-      }
 
       function getBoardAndMessages(userData) {
         $scope.userId = $window.location.hash.substring(1) || '499sm';
