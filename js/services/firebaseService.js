@@ -19,6 +19,10 @@ angular
       return firebase.database().ref('/messages/' + userId + '/' + messageId);
     }
 
+    function getAllBoards() {
+      return firebase.database().ref('/boards/').orderByChild('date_created');
+    }
+
     function getBoardRef(userId) {
       return firebase.database().ref('/boards/' + userId);
     }
@@ -36,6 +40,7 @@ angular
       getServerTimestamp: getServerTimestamp,
       getMessagesRef: getMessagesRef,
       getMessageRef: getMessageRef,
+      getAllBoards: getAllBoards,
       getBoardRef: getBoardRef,
       getBoardObjectRef: getBoardObjectRef,
       getBoardColumns: getBoardColumns

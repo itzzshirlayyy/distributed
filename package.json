@@ -14,8 +14,8 @@
     "chai": "^3.5.0",
     "connect-livereload": "latest",
     "gh-pages": "^0.12.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "latest",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "6.0.0",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "latest",
     "gulp-concat-css": "latest",
@@ -43,6 +43,8 @@
     "tiny-lr": "latest"
   },
   "dependencies": {
+    "@angular/cdk": "^11.0.4",
+    "@angular/material": "^11.0.4",
     "angular": "^1.4.9",
     "angular-aria": "^1.5.5",
     "angular-sanitize": "^1.5.5",

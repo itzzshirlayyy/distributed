@@ -1,6 +1,7 @@
 /* global EmojiPicker */
 'use strict';
 
+
 angular
   .module('fireideaz')
 
@@ -49,6 +50,9 @@ angular
         mapping: []
       };
 
+      getAllBoards();
+    
+
       $scope.droppedEvent = function(dragEl, dropEl) {
         var drag = $('#' + dragEl);
         var drop = $('#' + dropEl);
@@ -65,6 +69,17 @@ angular
           });
         });
       };
+
+      function getAllBoards() {
+        const allBoards = [];
+        firebaseService.getAllBoards().on('value', snap => {
+          Object.entries(snap.val()).forEach(([key, value]) => {
+            allBoards.push({'name': value.boardId, 'link': key});
+          });
+          $scope.allBoards = allBoards;
+          $scope.$apply();
+        });
+      }
 
       function getBoardAndMessages(userData) {
         $scope.userId = $window.location.hash.substring(1) || '499sm';

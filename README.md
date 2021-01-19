@@ -11,7 +11,9 @@ Easy to use and beautiful restrospective board.
 2. Fun Retro is using [Firebase](http://www.firebase.com). First create an account at firebase. Then create a test project.
 3. Enable sign-up using Email/Password for your project. This can be done
    through the 'Authentication' tab for the project.
-4. Change the file on js/vendor/firebaseInitialization.js and replace the values with your project values
+4. Go to project settings (https://console.firebase.google.com/u/0/project/<your-project>/settings/general) -> General -> and copy the `Web API Key`.
+5. Go to project settings (https://console.firebase.google.com/u/0/project/<your-project>/settings/general) -> Cloud Messaging -> and copy the `Sender ID`.
+6. Change the file on js/vendor/firebaseInitialization.js and replace the values with your project values as copied from steps 4 and 5.
 
 ```
 var config = {
@@ -20,7 +22,7 @@ var config = {
   databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
   projectId: "YOUR_PROJECT_ID",
   storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGE_ID"
+  messagingSenderId: "YOUR_MESSAGE_SENDER_ID"
 };
 
 firebase.initializeApp(config);
@@ -33,7 +35,7 @@ firebase.initializeApp(config);
 git update-index --assume-unchanged js/vendor/firebaseInitialization.js
 ```
 
-7. Install [Node.js](https://nodejs.org/en/)
+7. Install [node v6.17.1](https://nodejs.org/en/) . Very important: this project only runs on version 6 of node.
 8. Run `npm install` (inside the project folder)
 9. Install [Gulp](http://gulpjs.com/)
 10. Run `gulp`
@@ -46,7 +48,7 @@ Take a look on our [Contributing](https://github.com/funretro/distributed/blob/m
 ## Running the application
 
 1. Install [Node.js](https://nodejs.org/en/)
-2. Run `npm install` (inside the project folder)
+2. Install and Run `npm install` (inside the project folder)
 3. Run `gulp`
 4. Point your browser to [http://localhost:4000/](http://localhost:4000/) or open dist/index.html
 
