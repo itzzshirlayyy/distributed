@@ -1,5 +1,5 @@
 <header ng-show="userId !== ''">
-  <h1>Retrospectives</h1>
+  <h1 style="cursor: pointer;" ng-click="redirect('/')">Retrospectives</h1>
   <span>
     <span class="prime">
       <i class="fa fa-star"></i>
@@ -25,6 +25,9 @@
     ></a>
     <button class="first" ng-click="modalService.openAddNewBoard(this)">
       New board
+    </button>
+    <button class="first" ng-click="redirect('/')">
+      Go Back to Homepage
     </button>
   </span>
 </header>

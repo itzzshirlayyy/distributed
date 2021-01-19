@@ -66,6 +66,15 @@ angular
         data: [],
         mapping: []
       };
+
+      $scope.redirect = function(url, refresh) {
+        if(refresh || $scope.$$phase) {
+            $window.location.href = url;
+        } else {
+            $location.path(url);
+            $scope.$apply();
+        }
+    }
     
 
       $scope.droppedEvent = function(dragEl, dropEl) {
